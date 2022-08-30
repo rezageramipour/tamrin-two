@@ -18,23 +18,17 @@ btn.addEventListener("click", function () {
         title: texts,
     }
     app.innerHTML += mmd(data);
-    let bdown = document.getElementById('btn-down');
-    bdown.addEventListener("click", function () {
-        // arr = document.getElementById(0).innerHTML =
-        /*const node = document.getElementById("myList2").lastElementChild;
-        document.getElementById("myList1").appendChild(node);*/
-    })
 });
 
 function mmd(obj) {
     return `<li id="${obj.id}">
                 <div>
                     <span>${obj.title}</span>
-                    <button><i class="bi bi-arrow-down-short"></i></button>
+                    <button onclick="down(${obj.id})"><i class="bi bi-arrow-down-short"></i></button>
                     <button onclick="up(${obj.id})"><i class="bi bi-arrow-up-short"></i></button>
                     <button onclick="removeEle(${obj.id})"><i class="bi bi-x"></i></button>
                 </div>
-            </li>`
+            </li>`;
 }
 
 
@@ -42,6 +36,23 @@ function removeEle(id) {
     document.getElementById(id).remove();
 }
 
+/*document.getElementById("up").addEventListener("click", function () {
+
+})*/
 function up(id) {
-    document.getElementById(id)
+   let current = document.getElementById(id);
+   let pre = current.previousSibling;
+    current.parentNode.insertBefore(pre, current.nextSibling);
 }
+function down(id) {
+  let current = document.getElementById(id);
+  let next = current.nextSibling;
+  next.parentNode.insertBefore(next, next.previousSibling);
+
+}
+
+
+/*function down() {
+
+}*/
+
