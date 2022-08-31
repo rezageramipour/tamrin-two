@@ -1,6 +1,7 @@
 let btn = document.getElementById('btn');
 let counter = 0;
-btn.addEventListener("click", function () {
+
+function mmd2() {
     // let arr = [];
     let app = document.getElementById('app');
     let texts = document.getElementById("Text").value;
@@ -18,15 +19,23 @@ btn.addEventListener("click", function () {
         title: texts,
     }
     app.innerHTML += mmd(data);
+}
+
+document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+   mmd2();
 });
+btn.addEventListener("click", mmd2);
 
 function mmd(obj) {
-    return `<li id="${obj.id}">
-                <div>
-                    <span>${obj.title}</span>
-                    <button class="idd" onclick="down(${obj.id})"><i class="bi bi-arrow-down-short"></i></button>
-                    <button class="iuu" onclick="up(${obj.id})"><i class="bi bi-arrow-up-short"></i></button>
-                    <button onclick="removeEle(${obj.id})"><i class="bi bi-x"></i></button>
+    return `<li id="${obj.id}" class="bg-warning rounded my-1">
+                <div class="d-flex justify-content-between">
+                    <span class="text-dark mx-2">${obj.title}</span>
+                    <span class="btns">
+                        <button class="idd bg-white rounded" onclick="down(${obj.id})"><i class="bi bi-arrow-down-short"></i></button>
+                        <button class="iuu bg-white rounded" onclick="up(${obj.id})"><i class="bi bi-arrow-up-short"></i></button>
+                        <button class="bg-white rounded" onclick="removeEle(${obj.id})"><i class="bi bi-x"></i></button>
+                    </span>
                 </div>
             </li>`;
 }

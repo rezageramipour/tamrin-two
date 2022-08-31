@@ -1,12 +1,15 @@
 ul li:last-child .idd {
-    display: none
+    display: none;
 }
 
 ul li:first-child .iuu {
     display: none;
 }
 
-/*ul:last-child .icon-down {*/
-/*    display: none;*/
-/*}*/
+li {
+    list-style: none;
+}
 
+button {
+    border: 0px;
+}
