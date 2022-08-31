@@ -1,0 +1,12 @@
+ul li:last-child .idd {
+    display: none
+}
+
+ul li:first-child .iuu {
+    display: none;
+}
+
+/*ul:last-child .icon-down {*/
+/*    display: none;*/
+/*}*/
+
