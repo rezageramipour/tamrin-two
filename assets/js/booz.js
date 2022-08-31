@@ -40,15 +40,15 @@ function removeEle(id) {
 
 })*/
 function up(id) {
-   let current = document.getElementById(id);
-   let pre = current.previousSibling;
+    let current = document.getElementById(id);
+    let pre = current.previousSibling;
     current.parentNode.insertBefore(pre, current.nextSibling);
 }
-function down(id) {
-  let current = document.getElementById(id);
-  let next = current.nextSibling;
-  next.parentNode.insertBefore(next, next.previousSibling);
 
+function down(id) {
+    let current = document.getElementById(id);
+    let next = current.nextSibling;
+    next.parentNode.insertBefore(next, next.previousSibling);
 }
 
 
