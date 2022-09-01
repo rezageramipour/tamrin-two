@@ -39,7 +39,7 @@ function mmd(obj) {
                                 <button class="bg-black text-light rounded" onclick="left(${obj.id})"><i class="bi bi-arrow-left-short"></i></button>
                             </span>
                         </div>
-                        <ul id="ul-${obj.id}">
+                        <ul id="ul${obj.id}">
                         </ul>
             </li>`;
 }
@@ -69,7 +69,21 @@ function left() {
 }
 
 function right(id) {
-    let ul =document.getElementById(`ul-${id}`);
-    let li = document.getElementById(`${id}`);
-    ul.innerHTML += li.outerHTML;
+    let current = document.getElementById(`ul${id}`);
+    let pre = document.getElementById(id).previousSibling;
+
+    /*let pre_li = pre.getAttribute('id');
+    let current_ul = current.previousSibling;*/
+    current.appendChild(pre).remove();
+
+
+    /*console.log(pre_li);
+    console.log(current_ul);*/
+    console.log(pre);
+    console.log(current);
+    current.innerHTML += pre.outerHTML;
+
+
+    /*let pre = li.previousSibling;
+    pre.parentNode.insertBefore(ul, ul.previousSibling);*/
 }
