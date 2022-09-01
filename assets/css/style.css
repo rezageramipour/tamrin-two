@@ -13,3 +13,7 @@ li {
 button {
     border: 0px;
 }
+
+ul {
+    width: 500px;
+}

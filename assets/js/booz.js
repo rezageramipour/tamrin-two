@@ -23,20 +23,24 @@ function mmd2() {
 
 document.getElementById('form').addEventListener('submit', function (e) {
     e.preventDefault();
-   mmd2();
+    mmd2();
 });
 btn.addEventListener("click", mmd2);
 
 function mmd(obj) {
-    return `<li id="${obj.id}" class="bg-warning rounded my-1">
-                <div class="d-flex justify-content-between">
-                    <span class="text-dark mx-2">${obj.title}</span>
-                    <span class="btns">
-                        <button class="idd bg-white rounded" onclick="down(${obj.id})"><i class="bi bi-arrow-down-short"></i></button>
-                        <button class="iuu bg-white rounded" onclick="up(${obj.id})"><i class="bi bi-arrow-up-short"></i></button>
-                        <button class="bg-white rounded" onclick="removeEle(${obj.id})"><i class="bi bi-x"></i></button>
-                    </span>
-                </div>
+    return `<li id="${obj.id}">
+                        <div class="d-flex justify-content-between p-1 bg-warning rounded my-1">
+                            <span id="span" class="text-light mx-2">${obj.title}</span>
+                            <span class="btns">
+                                <button class="bg-black text-light rounded" onclick="right(${obj.id})"><i class="bi bi-arrow-right-short"></i></button>
+                                <button class="idd bg-white rounded" onclick="down(${obj.id})"><i class="bi bi-arrow-down-short"></i></button>
+                                <button class="iuu bg-white rounded" onclick="up(${obj.id})"><i class="bi bi-arrow-up-short"></i></button>
+                                <button class="bg-white rounded" onclick="removeEle(${obj.id})"><i class="bi bi-x"></i></button>
+                                <button class="bg-black text-light rounded" onclick="left(${obj.id})"><i class="bi bi-arrow-left-short"></i></button>
+                            </span>
+                        </div>
+                        <ul id="ul-${obj.id}">
+                        </ul>
             </li>`;
 }
 
@@ -57,3 +61,15 @@ function down(id) {
     next.parentNode.insertBefore(next, next.previousSibling);
 }
 
+function left() {
+    let ul = document.getElementById("app");
+    let li = document.getElementById("li-main");
+    li.appendChild(document.createTextNode("span"));
+    ul.appendChild(li);
+}
+
+function right(id) {
+    let ul =document.getElementById(`ul-${id}`);
+    let li = document.getElementById(`${id}`);
+    ul.innerHTML += li.outerHTML;
+}
