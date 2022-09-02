@@ -36,7 +36,7 @@ function mmd(obj) {
                                 <button class="idd bg-white rounded" onclick="down(${obj.id})"><i class="bi bi-arrow-down-short"></i></button>
                                 <button class="iuu bg-white rounded" onclick="up(${obj.id})"><i class="bi bi-arrow-up-short"></i></button>
                                 <button class="bg-white rounded" onclick="removeEle(${obj.id})"><i class="bi bi-x"></i></button>
-                                <button class="bg-black text-light rounded" onclick="left(${obj.id})"><i class="bi bi-arrow-left-short"></i></button>
+                                <button class="i-l bg-black text-light rounded" onclick="left(${obj.id})"><i class="bi bi-arrow-left-short"></i></button>
                             </span>
                         </div>
                         <ul id="ul${obj.id}">
@@ -63,10 +63,12 @@ function down(id) {
 
 function left(id) {
     let li = document.getElementById(`${id}`);
-    let ul = document.getElementById('app');
-    ul.innerHTML += li.outerHTML;
-    li.remove();
+    let ul = li.getElementsByTagName('ul')[0];
+    let ul_current = document.getElementById('app');
+    ul.remove();
+    ul_current.innerHTML += li.outerHTML;
     console.log(li);
+    console.log(ul_current);
 }
 
 function right(id) {

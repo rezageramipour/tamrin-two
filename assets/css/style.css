@@ -9,6 +9,11 @@ ul li:first-child > .div .iuu {
 ul li:first-child > .div .i-r {
     display: none;
 }
+
+/*ul li:last-child > .div .i-l {
+    display: none;
+}*/
+
 li {
     list-style: none;
 }
