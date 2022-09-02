@@ -29,10 +29,10 @@ btn.addEventListener("click", mmd2);
 
 function mmd(obj) {
     return `<li id="${obj.id}">
-                        <div class="d-flex justify-content-between p-1 bg-warning rounded my-1">
+                        <div class="d-flex justify-content-between p-1 bg-warning rounded my-1 div">
                             <span id="span" class="text-light mx-2">${obj.title}</span>
                             <span class="btns">
-                                <button class="bg-black text-light rounded" onclick="right(${obj.id})"><i class="bi bi-arrow-right-short"></i></button>
+                                <button class="i-r bg-black text-light rounded" onclick="right(${obj.id})"><i class="bi bi-arrow-right-short"></i></button>
                                 <button class="idd bg-white rounded" onclick="down(${obj.id})"><i class="bi bi-arrow-down-short"></i></button>
                                 <button class="iuu bg-white rounded" onclick="up(${obj.id})"><i class="bi bi-arrow-up-short"></i></button>
                                 <button class="bg-white rounded" onclick="removeEle(${obj.id})"><i class="bi bi-x"></i></button>
@@ -61,29 +61,19 @@ function down(id) {
     next.parentNode.insertBefore(next, next.previousSibling);
 }
 
-function left() {
-    let ul = document.getElementById("app");
-    let li = document.getElementById("li-main");
-    li.appendChild(document.createTextNode("span"));
-    ul.appendChild(li);
+function left(id) {
+    let li = document.getElementById(`${id}`);
+    let ul = document.getElementById('app');
+    ul.innerHTML += li.outerHTML;
+    li.remove();
+    console.log(li);
 }
 
 function right(id) {
-    let current = document.getElementById(`ul${id}`);
-    let pre = document.getElementById(id).previousSibling;
-
-    /*let pre_li = pre.getAttribute('id');
-    let current_ul = current.previousSibling;*/
-    current.appendChild(pre).remove();
-
-
-    /*console.log(pre_li);
-    console.log(current_ul);*/
-    console.log(pre);
-    console.log(current);
-    current.innerHTML += pre.outerHTML;
-
-
-    /*let pre = li.previousSibling;
-    pre.parentNode.insertBefore(ul, ul.previousSibling);*/
+    let li = document.getElementById(`${id}`);
+    let ul = li.previousSibling.getElementsByTagName('ul')[0];
+    ul.innerHTML += li.outerHTML;
+    li.remove();
+    console.log(li);
+    console.log(ul);
 }

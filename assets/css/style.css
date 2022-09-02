@@ -1,11 +1,14 @@
-ul li:last-child .idd {
+ul li:last-child > .div .idd {
     display: none;
 }
 
-ul li:first-child .iuu {
+ul li:first-child > .div .iuu {
     display: none;
 }
 
+ul li:first-child > .div .i-r {
+    display: none;
+}
 li {
     list-style: none;
 }
