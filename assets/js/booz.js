@@ -63,9 +63,8 @@ function down(id) {
 
 function left(id) {
     let li = document.getElementById(`${id}`);
-    let ul = li.getElementsByTagName('ul')[0];
+    li.remove();
     let ul_current = document.getElementById('app');
-    ul.remove();
     ul_current.innerHTML += li.outerHTML;
     console.log(li);
     console.log(ul_current);
