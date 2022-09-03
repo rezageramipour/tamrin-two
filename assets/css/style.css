@@ -10,7 +10,15 @@ ul li:first-child > .div .i-r {
     display: none;
 }
 
-/*ul li:last-child > .div .i-l {
+.i-l {
+    display: none;
+}
+
+#app ul .i-l {
+    display: inline-flex;
+}
+
+/*#app:first-child .i-l {
     display: none;
 }*/
 

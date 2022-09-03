@@ -66,8 +66,6 @@ function left(id) {
     li.remove();
     let ul_current = document.getElementById('app');
     ul_current.innerHTML += li.outerHTML;
-    console.log(li);
-    console.log(ul_current);
 }
 
 function right(id) {
@@ -75,6 +73,4 @@ function right(id) {
     let ul = li.previousSibling.getElementsByTagName('ul')[0];
     ul.innerHTML += li.outerHTML;
     li.remove();
-    console.log(li);
-    console.log(ul);
 }
